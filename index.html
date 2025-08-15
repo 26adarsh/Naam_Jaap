@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naam Japa Mala Counter & Progress Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-stars"></div>
+
+    <div class="counter-container">
+        
+        <div class="counter-display reveal" data-delay="200">
+            <svg class="progress-ring" width="240" height="240">
+                <circle class="progress-ring__circle-bg" stroke-width="10" fill="transparent" r="110" cx="120" cy="120"/>
+                <circle id="progress-ring-circle" class="progress-ring__circle" stroke-width="10" fill="transparent" r="110" cx="120" cy="120"/>
+            </svg>
+            <div id="current-count" class="count-number">0</div>
+        </div>
+
+        <div class="info-bubbles">
+            <div class="bubble reveal" id="malas-bubble" data-delay="400">
+                <span class="bubble-value" id="malas-completed">0</span>
+                <span class="bubble-label">Malas</span>
+            </div>
+            <div class="bubble reveal" data-delay="500">
+                <span class="bubble-value" id="total-chants">0</span>
+                <span class="bubble-label">Chants</span>
+            </div>
+            <div class="bubble reveal" data-delay="600">
+                <span class="bubble-value" id="total-time">00:00:00</span>
+                <span class="bubble-label">Time</span>
+            </div>
+        </div>
+        
+        <button class="toggle-progress-btn reveal" data-delay="700" id="toggle-progress" aria-label="Show Progress">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+
+        <div class="mode-selector reveal" data-delay="800">
+            <label><input type="radio" name="mode" value="manual" checked> Manual</label>
+            <label><input type="radio" name="mode" value="auto" disabled> Auto</label>
+            <label><input type="radio" name="mode" value="voice" disabled> Voice</label>
+        </div>
+
+        <div class="count-button-wrapper reveal" data-delay="900">
+            <button id="count-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>Count</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="progress-container" id="progress-section">
+        <h1 class="progress-title">Naam Japa Mala Completion - Progress Tracker</h1>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>MALA #</th>
+                        <th>COUNT</th>
+                        <th>TIME</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody id="progress-table-body">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td id="table-total-chants">0</td>
+                        <td id="table-total-time">00:00:00</td>
+                        <td id="table-footer-text">Steps towards GOD</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <button class="reset-all-btn" id="reset-all-btn">Reset All Progress</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
